@@ -1,0 +1,6 @@
+{
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier", "tslint-config-security"],
+  "linterOptions": {
+    "include": ["src/**/*"]
+  }
+}

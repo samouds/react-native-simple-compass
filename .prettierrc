@@ -1,0 +1,34 @@
+{
+  "printWidth": 120,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": { "parser": "html" }
+    },
+    {
+      "files": "*.js",
+      "options": { "parser": "babel", "trailingComma": "es5" }
+    },
+    {
+      "files": "*.json",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "*.md",
+      "options": { "parser": "markdown" }
+    },
+    {
+      "files": "*.mdx",
+      "options": { "parser": "mdx" }
+    },
+    {
+      "files": "*.{ts,tsx}",
+      "options": { "parser": "typescript", "trailingComma": "es5" }
+    },
+    {
+      "files": ["*.yaml", "*.yml"],
+      "options": { "parser": "yaml" }
+    }
+  ]
+}

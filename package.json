@@ -1,17 +1,89 @@
 {
-  "name": "react-native-simple-compass",
-  "version": "1.0.0",
+  "name": "@kevinsperrine/react-native-simple-compass",
+  "version": "2.0.0",
   "description": "Simple module exposing the compass on iOS and Android",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "analyze": "npx tsc --noEmit",
+    "dev-sync": "yarn build && cp -r *podspec lib windows web android ios src example/node_modules/react-native-device-info/",
+    "lint": "npx eslint ./ --ignore-pattern example --ignore-pattern node_modules --fix --quiet",
+    "shipit": "np",
+    "test": "echo no tests defined",
+    "precommit": "lint-staged && yarn analyze",
+    "build": "bob build",
+    "prepare": "yarn build"
   },
-  "keywords": [
-    "react-native"
+  "react-native": "src/index.ts",
+  "types": "lib/typescript/index.d.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "files": ["/android", "!/android/build", "/ios", "src/", "lib/", "/*.podspec"],
+  "keywords": ["react-native"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinsperrine/react-native-simple-compass.git"
+  },
+  "author": {
+    "name": "Viktor Nilsson"
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Kevin S. Perrine",
+      "email": "kperrine@gmail.com"
+    },
+    {
+      "name": "Carl Joachim Rørvik"
+    }
   ],
-  "author": "",
-  "license": "",
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.2"
+  },
   "devDependencies": {
-    "react-native": "*"
+    "@babel/core": "*",
+    "@react-native-community/bob": "^0.7.0",
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.5",
+    "@types/react-native": "^0.60.17",
+    "@types/react-test-renderer": "^16.9.0",
+    "clang-format": "^1.2.4",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.1",
+    "np": "^5.1.0",
+    "prettier": "^1.18.2",
+    "react": "16.9.0",
+    "react-native": "^0.61.2",
+    "tslib": "^1.9.2",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-security": "^1.16.0",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.6.3"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn prettier --write",
+      "yarn tslint --project tsconfig.json --config tslint.json --fix",
+      "git add"
+    ],
+    "android/src/**/*.java": ["yarn clang-format -i", "git add"],
+    "ios/**/*.{m,h}": ["yarn clang-format -i", "git add"]
+  },
+  "eslintConfig": {
+    "extends": "@react-native-community"
+  },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": ["commonjs", "module", "typescript"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
   }
 }

@@ -1,38 +1,22 @@
+require 'json'
+
+package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+
 Pod::Spec.new do |s|
+  s.name           = 'react-native-simple-compass'
+  s.version        = package['version']
+  s.summary        = package['description']
+  s.description    = package['description']
+  s.license        = package['license']
+  s.author         = package['author']
+  s.homepage       = package['homepage']
+  s.source         = { :git => 'https://github.com/kevinsperrine/react-native-directed-scrollview.git', :tag => s.version }
 
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  s.requires_arc   = true
+  s.platform       = :ios, '9.0'
 
-  s.name         = "react-native-simple-compass"
-  s.version      = "1.0.0"
-  s.summary      = "Some summary"
-  s.description  = <<-DESC
-This is a great description
-                   DESC
+  s.preserve_paths = 'README.md', 'package.json', 'index.js'
+  s.source_files   = 'ios/*.{h,m}'
 
-  s.homepage     = "https://github.com/vnil/react-native-simple-compass"
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.license      = "MIT"
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.author       = { "Some guy" => "some.guy@internett.com" }
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.platform     = :ios, "9.0"
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.source       = { :git => "https://github.com/vnil/react-native-simple-compass" }
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.source_files  = 'ios/**/*.{h,m}'
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.dependency "React"
-
+  s.dependency 'React'
 end
