@@ -1,6 +1,6 @@
 {
-  "name": "@kevinsperrine/react-native-simple-compass",
-  "version": "2.0.5",
+  "name": "@geekazoid-at/react-native-simple-compass",
+  "version": "2.0.6",
   "description": "Simple module exposing the compass on iOS and Android",
   "scripts": {
     "analyze": "npx tsc --noEmit",
@@ -14,10 +14,10 @@
   "module": "lib/module/index.js",
   "files": ["/android", "!/android/build", "/ios", "src/", "lib/", "/*.podspec"],
   "keywords": ["react-native"],
-  "homepage": "https://github.com/kevinsperrine/react-native-simple-compass",
+  "homepage": "https://github.com/geekazoid-at/react-native-simple-compass",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kevinsperrine/react-native-simple-compass.git"
+    "url": "https://github.com/geekazoid-at/react-native-simple-compass.git"
   },
   "author": {
     "name": "Viktor Nilsson"
@@ -30,6 +30,10 @@
     },
     {
       "name": "Carl Joachim Rørvik"
+    },
+    {
+      "name": "Andreas Bretschneider",
+      "email": "hq@traceforce.live"
     }
   ],
   "peerDependencies": {
